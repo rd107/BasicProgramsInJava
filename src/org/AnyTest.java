@@ -2,28 +2,40 @@ package org;
 
 public class AnyTest 
 {
-	public static void printAllZeroSumSubarray(int []narr)
+	public static void binarySearch(int arr[],int first,int last,int key)
 	{
-		for(int i=0;i<narr.length;i++)
+		int mid = (first+last)/2;
+		
+		while(first<=last)
 		{
-			int sum = 0;
-			
-			for(int j=i;j<narr.length;j++)
+			if(arr[mid]<key)
 			{
-				sum+=narr[j];
-				
-				if(sum==0)
-				{
-					System.out.println(i+""+j);
-				}
+				first = mid+1;
 			}
+			else if(arr[mid]==key)
+			{
+				System.out.println("Element found at: "+(mid+1)+".");
+				break;
+			}
+			else
+			{
+				last = mid-1;
+			}
+			
+			mid = (first+last)/2;
 		}
+		
+		if(first>last)
+			System.out.println("Element not found.");
 	}
 	
 	public static void main(String[] args) 
 	{
-		int []narr = {3, 4, -7, 3, 1, 3, 1, -4, -2, -2};
+		int arr[] = {10,20,30,40};
+		int first = 0;
+		int last = arr.length-1;
+		int key = 50;
 		
-		printAllZeroSumSubarray(narr);
+		binarySearch(arr,first,last,key);
 	}
 }
