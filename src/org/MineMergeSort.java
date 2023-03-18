@@ -1,9 +1,9 @@
 package org;
 
-public class AnyTest 
-{	
+public class MineMergeSort 
+{
 	public static void main(String[] args) 
 	{
-		
+	
 	}
 }
